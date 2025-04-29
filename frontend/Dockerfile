@@ -1,33 +1,20 @@
-# Usar una imagen base oficial de Node.js
-FROM node:22-alpine
-# Usar una imagen base oficial de Node.js (ajusta la versión si es necesario)
+# --- Fase de construcción ---
+    FROM node:22-alpine as build
 
-# Establecer el directorio de trabajo dentro del contenedor
-# Aquí estará tu aplicación React/Vite dentro del contenedor
-WORKDIR /app 
-
-# Copiar el archivo 'package.json' y 'package-lock.json' (o 'yarn.lock' si usas Yarn)
-COPY package*.json ./
-
-
-
-# Instalar las dependencias del proyecto
-# O puedes usar 'yarn install' si usas Yarn
-# Actualiza npm primero
-# Fuerza instalar dependencias opcionales
-RUN npm install -g npm@latest && \
-    npm install --include=optional
-
-# Copiar el resto del código del proyecto
-COPY . .
-
-# Construir la aplicación para producción (si estás listo para la producción)
-# Esto crea los archivos estáticos en la carpeta 'dist'
-# RUN npm run build  
-
-# Exponer el puerto que usará Vite (puerto 5173 por defecto)
-EXPOSE 5174
-
-# Configurar el comando para ejecutar el servidor de desarrollo de Vite
-# Esto arrancará Vite en modo desarrollo
-CMD ["npm", "run", "dev"]
+    WORKDIR /app
+    COPY package*.json ./
+    RUN npm install --include=optional
+    COPY . .
+    RUN npm run build  # Genera la carpeta /app/dist
+    
+    # --- Fase de producción ---
+    FROM nginx:alpine
+    
+    # Copiar archivos construidos
+    COPY --from=build /app/dist /usr/share/nginx/html
+    
+    # Copiar configuración de Nginx
+    COPY nginx.conf /etc/nginx/conf.d/default.conf
+    
+    EXPOSE 80
+    CMD ["nginx", "-g", "daemon off;"]
