@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copiar el archivo 'requirements.txt' primero para instalar dependencias
-COPY backend/requirements.txt backend/requirements.txt
+COPY ./backend/requirements.txt ./backend/requirements.txt
 
 # Instalar dependencias desde el archivo de backend
 RUN pip install --no-cache-dir -r backend/requirements.txt
