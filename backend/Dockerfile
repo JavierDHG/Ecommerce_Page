@@ -12,7 +12,6 @@ COPY backend/requirements.txt backend/requirements.txt
 # Instalar dependencias desde el archivo de backend
 RUN pip install --no-cache-dir -r backend/requirements.txt
 
-# Copiar los archivos restantes del proyecto
 COPY . .
 
 COPY wait-for-db.sh /wait-for-db.sh
