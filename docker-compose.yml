@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: ./backend  # Ruta donde está tu Dockerfile de Django
+    volumes:
+      - ./backend:/app  # Sincroniza el código local con el contenedor
+    ports:
+      - "8000:8000"  # Expone el puerto de Django
+    depends_on:
+      - db  # Asegúrate de que la base de datos esté lista antes de iniciar el backend
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust  # Solo para desarrollo
+    env_file:
+      - ./backend/.env  # Si tienes variables de entorno
+
+  frontend:
+    build: ./frontend  # Ruta donde está tu Dockerfile de React/Vite
+    volumes:
+      - ./frontend:/app  # Sincroniza el código local con el contenedor
+      - /app/node_modules
+    ports:
+      - "5174:5174"  # Expone el puerto de Vite
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: db_ecommerce
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: persia098
+    command: postgres -c listen_addresses='*'  # Aceptar conexiones de cualquier IP
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
