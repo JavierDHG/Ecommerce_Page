@@ -2,7 +2,7 @@
 FROM python:3.11-slim
 # Establecer el directorio de trabajo en el contenedor
 # Aquí estará tu aplicación Django dentro del contenedor
-WORKDIR /app 
+WORKDIR /app/backend 
 
 
 # Instala el cliente de PostgreSQL
@@ -28,4 +28,4 @@ EXPOSE 8000
 
 # Configurar el comando para ejecutar Django
 # Ejecuta 'python manage.py runserver 0.0.0.0:8000' para iniciar el servidor
-CMD ["gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "backend.django_ecommerce_api.wsgi:application", "--bind", "0.0.0.0:8000"]
