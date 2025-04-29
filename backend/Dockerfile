@@ -2,7 +2,7 @@
 FROM python:3.11-slim
 # Establecer el directorio de trabajo en el contenedor
 # Aquí estará tu aplicación Django dentro del contenedor
-WORKDIR /app/backend 
+WORKDIR /app 
 
 
 # Instala el cliente de PostgreSQL
