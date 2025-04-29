@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
@@ -59,7 +59,7 @@ REST_FRAMEWORK = {
 }
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),  # Agrega el encabezado "Bearer" al JWT
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10) ,  # Desactiva la expiración del token
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1) ,  # Desactiva la expiración del token
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=15),  # Desactiva la expiración del refresh token
 }
 MIDDLEWARE = [
@@ -145,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
