@@ -10,7 +10,7 @@ RUN apt-get update && \
 COPY ./requirements.txt ./
 
 # Instalar dependencias desde el archivo de backend
-RUN pip install --no-cache-dir -r backend/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
