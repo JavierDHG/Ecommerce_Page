@@ -14,7 +14,7 @@ export const useRegister = () => {
     }
 
     try {
-      const response = await axios.post("https://front-ecommerce-page.onrender.com/register/", {
+      const response = await axios.post("https://ecostore-api.onrender.com/register/", {
         username,
         email,
         password,

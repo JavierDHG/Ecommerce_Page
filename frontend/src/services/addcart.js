@@ -5,7 +5,7 @@ export const addToCart = async (productId, quantity) => {
   
   try {
     await axios.post(
-      "https://front-ecommerce-page.onrender.com/api/v1/cart_items/", // <--- Asegúrate de usar la URL correcta
+      "https://ecostore-api.onrender.com/api/v1/cart_items/", // <--- Asegúrate de usar la URL correcta
       { product_id: productId , quantity }, // <--- Campo "product_id" y "quantity"
       {
         headers: {

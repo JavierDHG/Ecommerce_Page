@@ -4,7 +4,7 @@ export const getOrderItems = async () => {
   const token = localStorage.getItem("accessToken");
   try {
     const response = await axios.get(
-      "https://front-ecommerce-page.onrender.com/api/v1/orders_available/"
+      "https://ecostore-api.onrender.com/api/v1/orders_available/"
       , {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ export const sendOrderItems = async (shippingData) => {
 
     // Realizar la petición POST para enviar los datos de envío
     const response = await axios.post(
-      "https://front-ecommerce-page.onrender.com/api/v1/shippings/",
+      "https://ecostore-api.onrender.com/api/v1/shippings/",
       shippingData,
       {
         headers: {

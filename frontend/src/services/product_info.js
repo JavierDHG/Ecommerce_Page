@@ -3,7 +3,7 @@ import axios from "axios";
 export const getProductDetails = async (productId) => {
   try {
     const response = await axios.get(
-      `https://front-ecommerce-page.onrender.com/api/v1/products/${productId}/`
+      `https://ecostore-api.onrender.com/api/v1/products/${productId}/`
     );
     return response.data;
   } catch (error) {

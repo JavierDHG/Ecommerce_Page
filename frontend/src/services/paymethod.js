@@ -3,7 +3,7 @@ import axios from "axios";
 export const createOrder = async (total) => {
   try {
     const response = await axios.post(
-      "https://front-ecommerce-page.onrender.com/api/v1/orders/",
+      "https://ecostore-api.onrender.com/api/v1/orders/",
       {total},
       {
         headers: {
@@ -28,7 +28,7 @@ export const createOrderItems = async (orderId, items) => {
     }));
 
     const response = await axios.post(
-      `https://front-ecommerce-page.onrender.com/api/v1/order_items/`,
+      `https://ecostore-api.onrender.com/api/v1/order_items/`,
       itemsWithOrder,
       {
         headers: {
@@ -47,7 +47,7 @@ export const createOrderItems = async (orderId, items) => {
 export const processPayment = async (orderId) => {
   try {
     const response = await axios.post(
-      `https://front-ecommerce-page.onrender.com/api/v1/orders/${orderId}/pay/`, // Usa la URL del endpoint
+      `https://ecostore-api.onrender.com/api/v1/orders/${orderId}/pay/`, // Usa la URL del endpoint
       {}, // No necesita cuerpo, solo el order_id en la URL
       {
         headers: {
