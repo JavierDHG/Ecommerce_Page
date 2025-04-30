@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Ejecutar migraciones
 python manage.py migrate
 
