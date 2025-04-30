@@ -1,9 +1,9 @@
 # --- Fase de construcción ---
-    FROM node:22-alpine as build --legacy-peer-deps
+    FROM node:22-alpine as build
 
     WORKDIR /app
     COPY package*.json ./
-    RUN npm install --include=optional
+    RUN npm install --include=optional --legacy-peer-deps
     COPY . .
     RUN npm run build
     
