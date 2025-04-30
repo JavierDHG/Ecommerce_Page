@@ -1,11 +1,11 @@
 # --- Fase de construcción ---
-    FROM node:22-alpine as build
+    FROM node:22-alpine as build --legacy-peer-deps
 
     WORKDIR /app
     COPY package*.json ./
     RUN npm install --include=optional
     COPY . .
-    RUN npm run build  # Genera la carpeta /app/dist
+    RUN npm run build
     
     # --- Fase de producción ---
     FROM nginx:alpine

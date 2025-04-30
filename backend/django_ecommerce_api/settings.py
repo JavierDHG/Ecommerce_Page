@@ -29,7 +29,7 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ecostore-api.onrender.com"]
 
 
 # Application definition
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'django_ecommerce_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -108,7 +108,11 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
+'''
 
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -156,8 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Esto es para permitir peticiones de cualquier origen desde el frontend
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5174",
-    "http://localhost:5175",
+    "https://ecostore-api.onrender.com",
 ]
 
 # Esto sirve para permitir el acceso a los archivos estáticos y de medios
