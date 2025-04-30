@@ -5,7 +5,7 @@ const createCategories = async (categories) => {
   console.log("Data received in createCategories:", categories);
   try {
     const response = await axios.post(
-        "http://127.0.0.1:8000/api/v1/categories/",
+        "https://front-ecommerce-page.onrender.com/api/v1/categories/",
         categories,
         {
         headers: {

@@ -5,7 +5,7 @@ export const getCart = async () => {
 
   try {
     const response = await axios.get(
-      "http://127.0.0.1:8000/api/v1/cart_items/",
+      "https://front-ecommerce-page.onrender.com/api/v1/cart_items/",
       {
         headers: {
           Authorization: `Bearer ${token}`,

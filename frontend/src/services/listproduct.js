@@ -5,7 +5,7 @@ export const getProducts = async () => {
   try {
     const token = localStorage.getItem("accessToken"); // Obtiene el token del localStorage
     
-    const response = await axios.get("http://127.0.0.1:8000/api/v1/products/", {
+    const response = await axios.get("https://front-ecommerce-page.onrender.com/api/v1/products/", {
     });
     
     return response.data;

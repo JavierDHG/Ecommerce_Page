@@ -32,6 +32,14 @@ DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ecostore-api.onrender.com"]
 
+# Configuración de seguridad para HTTPS
+SECURE_SSL_REDIRECT = True  # Redirige HTTP a HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://ecostore-api.onrender.com",
+    "https://front-ecommerce-page.onrender.com"
+]
 
 # Application definition
 
@@ -62,8 +70,9 @@ REST_FRAMEWORK = {
 }
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),  # Agrega el encabezado "Bearer" al JWT
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1) ,  # Desactiva la expiración del token
-    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=15),  # Desactiva la expiración del refresh token
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15) ,  # Desactiva la expiración del token
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),  # Desactiva la expiración del refresh token
+    "ROTATE_REFRESH_TOKENS": True,  # Activa la rotación de refresh tokens
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -161,8 +170,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Esto es para permitir peticiones de cualquier origen desde el frontend
 CORS_ALLOWED_ORIGINS = [
-    "https://ecostore-api.onrender.com",
+    "https://front-ecommerce-page.onrender.com",
 ]
+
+CORS_ALLOW_CREDENTIALS = True 
 
 # Esto sirve para permitir el acceso a los archivos estáticos y de medios
 MEDIA_URL = '/media/'

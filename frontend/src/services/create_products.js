@@ -5,7 +5,7 @@ const createProduct = async (product) => {
   console.log("Data received in createProduct:", product); // 👈 Verifica que el producto tenga la estructura correcta
   try {
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/v1/products/",
+      "https://front-ecommerce-page.onrender.com/api/v1/products/",
       product, // 👈 Axios lo convierte automáticamente a JSON
       {
         headers: {

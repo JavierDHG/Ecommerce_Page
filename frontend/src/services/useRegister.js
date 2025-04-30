@@ -14,7 +14,7 @@ export const useRegister = () => {
     }
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/register/", {
+      const response = await axios.post("https://front-ecommerce-page.onrender.com/register/", {
         username,
         email,
         password,

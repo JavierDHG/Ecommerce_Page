@@ -3,7 +3,7 @@ import axios from "axios";
 const updateEmail = async (userId, newEmail) => {
   try {
     const response = await axios.put(
-      `http://127.0.0.1:8000/api/v1/users/${userId}/`,
+      `https://front-ecommerce-page.onrender.com/api/v1/users/${userId}/`,
       { email: newEmail },
       {
         headers: {

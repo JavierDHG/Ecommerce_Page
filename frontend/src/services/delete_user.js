@@ -3,7 +3,7 @@ import axios from "axios";
 const deleteUser = async (userId) => {
     try {
         const response = await axios.delete(
-            `http://127.0.0.1:8000/api/v1/users/${userId}/`,
+            `https://front-ecommerce-page.onrender.com/api/v1/users/${userId}/`,
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
