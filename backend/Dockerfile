@@ -9,12 +9,10 @@ RUN apt-get update && \
 
 # Copiar archivos de configuración primero (mejor uso de cache de Docker)
 COPY ./requirements.txt ./
-COPY wait-for-db.sh /wait-for-db.sh
 COPY entrypoint.sh /entrypoint.sh
 
 # Instalar dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
-RUN chmod +x /wait-for-db.sh /entrypoint.sh  # Dar permisos
 
 # Copiar el resto del proyecto
 COPY . .
