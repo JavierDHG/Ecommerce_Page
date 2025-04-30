@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar";
 import SyncPendingCart from "./components/SyncPendingCart";
 import EcommerceProfile from "./pages/EcommerceProfile";
 import EcommerceHistory from "./pages/EcommerceHistory";
-import EcommerceSettings from "./pages/EcommerceSettings";
 import EcommerceStaff from "./pages/EcommerceStaff";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -39,9 +38,6 @@ function App() {
           } />
           <Route path="/ecommerce-profile" element={
             <PrivateRoute><EcommerceProfile /></PrivateRoute>
-          } />
-          <Route path="/ecommerce-settings" element={
-            <PrivateRoute><EcommerceSettings /></PrivateRoute>
           } />
           <Route path="/ecommerce-staff" element={
             <PrivateRoute><EcommerceStaff /></PrivateRoute>
