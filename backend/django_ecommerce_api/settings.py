@@ -171,7 +171,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Esto es para permitir peticiones de cualquier origen desde el frontend
 CORS_ALLOWED_ORIGINS = [
     "https://front-ecommerce-page.onrender.com",
-    "https://ecostore-api.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True 
