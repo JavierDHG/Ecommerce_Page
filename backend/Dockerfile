@@ -19,7 +19,7 @@ COPY backend/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Copiar el resto del código
-COPY backend/ .
+COPY . .
 
 # Exponer puerto de la app
 EXPOSE 8000
