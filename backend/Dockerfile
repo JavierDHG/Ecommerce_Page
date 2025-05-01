@@ -9,7 +9,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copiar dependencias primero para aprovechar cache
-COPY backend/requirements.txt ./
+COPY requirements.txt ./
 
 # Instalar dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
