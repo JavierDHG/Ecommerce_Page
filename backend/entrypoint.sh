@@ -5,3 +5,4 @@ python manage.py migrate
 
 # Ejecutar el comando principal (CMD)
 exec "$@"
+
