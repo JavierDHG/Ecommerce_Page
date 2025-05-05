@@ -4,6 +4,8 @@ from rest_framework.permissions import AllowAny
 from .serializer import UserSerializer, CustomTokenObtainPairSerializer
 from .models import User
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
 
 
 
@@ -42,3 +44,14 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 # Esto es útil para mantener la sesión del usuario activa sin volver a loguearse.
 class CustomTokenRefreshView(TokenRefreshView):
     pass
+
+def create_superuser_view(request):
+    User = get_user_model()
+    if not User.objects.filter(username='admin').exists():
+        user = User.objects.create_superuser(
+            username='admin',
+            email='admin@example.com',
+            password='adminpassword'
+        )
+        return HttpResponse("Superusuario creado con éxito.")
+    return HttpResponse("El superusuario ya existe.")
