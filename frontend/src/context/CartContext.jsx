@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = async (cartId) => {
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`http://127.0.0.1:8000/api/v1/carts/${cartId}/`, {
+      await axios.delete(`https://ecostore-api.onrender.com/api/v1/carts/${cartId}/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
