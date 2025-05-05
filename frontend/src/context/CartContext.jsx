@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("http://127.0.0.1:8000/api/v1/carts/", {
+      const response = await axios.get("https://ecostore-api.onrender.com/api/v1/carts/", {
         headers: { Authorization: `Bearer ${token}` }
       });
       
