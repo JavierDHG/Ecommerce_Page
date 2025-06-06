@@ -255,7 +255,7 @@ const EcommercePages = () => {
                         src={prod.image || "/placeholder.svg"}
                         alt={prod.title}
                         className="w-full object-cover object-center transition-transform duration-500 group-hover:scale-110 cursor-pointer"
-                        onClick={() => openModal(prod.image)} // Abre el modal con la imagen específica
+                        onClick={() => openModal(prod.image, prod.description)} // Abre el modal con la imagen específica
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gray-200">
