@@ -125,7 +125,7 @@ DATABASES = {
 # Intenta cargar DATABASE_URL desde variables de entorno
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL', 'postgresql://prod_db_t74c_user:IGkJEOkFIxWBFTSTpQLyeztinSJ98XOk@dpg-d08klpbe5dus73a48i80-a.oregon-postgres.render.com/prod_db_t74c'),
+        os.environ.get('DATABASE_URL', 'postgresql://db_ecommerce_page_user:Y9IVvV0PMAc45XP5krtmoOUpc1fXmsqT@dpg-d112hjh5pdvs73ehn5fg-a/db_ecommerce_page'),
         engine='django.db.backends.postgresql',
         conn_max_age=600  # Mantén la conexión activa
     )
