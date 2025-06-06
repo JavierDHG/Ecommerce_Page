@@ -25,4 +25,8 @@ COPY . .
 EXPOSE 8000
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["gunicorn", "django_ecommerce_api.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+CMD python manage.py migrate && \
+    python backend/create_admin.py && \
+    python manage.py collectstatic --noinput && \
+    gunicorn django_ecommerce_api.wsgi:application --bind 0.0.0.0:$PORT
