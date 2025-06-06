@@ -104,7 +104,7 @@ const EcommercePages = () => {
     </div>
   )
 
-  const openModal = (imageUrl) => setSelectedImage(imageUrl)
+  const openModal = (imageUrl, description) => setSelectedImage({ imageUrl, description })
   const closeModal = () => setSelectedImage(null)
 
   // Función para cerrar el modal con la tecla Escape
@@ -373,28 +373,30 @@ const EcommercePages = () => {
           onClick={closeModal}
         >
           <div
-            className="relative max-w-4xl w-full max-h-[90vh] bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-xl backdrop-filter"
-            onClick={(e) => e.stopPropagation()} // Evita que se cierre al hacer clic en la imagen
+            className="relative max-w-4xl w-full max-h-[90vh] bg-white bg-opacity-90 rounded-lg overflow-auto shadow-xl backdrop-filter"
+            onClick={(e) => e.stopPropagation()} // Evita cerrar modal al hacer clic dentro
           >
-            {/* Barra superior con botón de cierre */}
             <div className="absolute top-0 right-0 p-2 z-10">
               <button
                 onClick={closeModal}
                 className="p-2 rounded-full bg-black bg-opacity-50 text-white hover:bg-opacity-70 transition-colors"
-                aria-label="Cerrar modal"
               >
-                <X className="h-6 w-6" />
+                X
               </button>
             </div>
 
-            {/* Contenedor de la imagen */}
-            <div className="w-full h-full flex items-center justify-center bg-gray-100">
-              <img
-                src={selectedImage || "/placeholder.svg"}
-                alt="Imagen del producto"
-                className="max-w-full max-h-[90vh] object-contain"
-              />
-            </div>
+            <img
+              src={selectedImage.imageUrl}
+              alt="Producto"
+              className="max-w-full max-h-[70vh] object-contain mx-auto"
+            />
+
+            {/* Aquí agregamos la descripción */}
+            {selectedImage.description && (
+              <div className="p-4 text-gray-700 text-center">
+                <p>{selectedImage.description}</p>
+              </div>
+            )}
           </div>
         </div>
       )}
