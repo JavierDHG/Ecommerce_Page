@@ -394,7 +394,7 @@ const EcommercePages = () => {
             {/* Aquí agregamos la descripción */}
             {selectedImage.description && (
               <div className="p-4 text-gray-700 text-center">
-                <p>{selectedImage.description}</p>
+                <p className="p-4 text-gray-700 whitespace-pre-wrap">{selectedImage.description}</p>
               </div>
             )}
           </div>
