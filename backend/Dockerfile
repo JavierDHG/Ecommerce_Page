@@ -27,6 +27,5 @@ EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD python manage.py migrate && \
-    python create_admin.py && \
     python manage.py collectstatic --noinput && \
     gunicorn django_ecommerce_api.wsgi:application --bind 0.0.0.0:$PORT
