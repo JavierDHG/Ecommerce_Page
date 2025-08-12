@@ -31,15 +31,15 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ecostore-api.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "####", "####"]
 
 # Configuración de seguridad para HTTPS
 SECURE_SSL_REDIRECT = True  # Redirige HTTP a HTTPS
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
-    "https://ecostore-api.onrender.com",
-    "https://front-ecommerce-page.onrender.com"
+    "####",
+    "####"
 ]
 
 # Application definition
@@ -125,8 +125,8 @@ DATABASES = {
 # Intenta cargar DATABASE_URL desde variables de entorno
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL', 'postgresql://db_ecommerce_page_user:Y9IVvV0PMAc45XP5krtmoOUpc1fXmsqT@dpg-d112hjh5pdvs73ehn5fg-a/db_ecommerce_page'),
-        engine='django.db.backends.postgresql',
+        os.environ.get('DATABASE_URL', '####'),
+        engine='####',
         conn_max_age=600  # Mantén la conexión activa
     )
 }
@@ -178,7 +178,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Esto es para permitir peticiones de cualquier origen desde el frontend
 CORS_ALLOWED_ORIGINS = [
-    "https://front-ecommerce-page.onrender.com",
+    "####",
 ]
 
 CORS_ALLOW_CREDENTIALS = True 
