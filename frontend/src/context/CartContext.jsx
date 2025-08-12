@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.get("https://ecostore-api.onrender.com/api/v1/carts/", {
+      const response = await axios.get("####", {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = async (cartId) => {
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.delete(`https://ecostore-api.onrender.com/api/v1/carts/${cartId}/`, {
+      await axios.delete(`####`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
