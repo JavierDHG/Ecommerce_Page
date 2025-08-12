@@ -5,7 +5,7 @@ export const getProducts = async () => {
   try {
     const token = localStorage.getItem("accessToken"); // Obtiene el token del localStorage
     
-    const response = await axios.get("https://ecostore-api.onrender.com/api/v1/products/", {
+    const response = await axios.get("####", {
     });
     
     return response.data;
