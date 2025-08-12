@@ -5,7 +5,7 @@ const createCategories = async (categories) => {
   console.log("Data received in createCategories:", categories);
   try {
     const response = await axios.post(
-        "https://ecostore-api.onrender.com/api/v1/categories/",
+        "####",
         categories,
         {
         headers: {
