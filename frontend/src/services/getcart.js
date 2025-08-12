@@ -5,7 +5,7 @@ export const getCart = async () => {
 
   try {
     const response = await axios.get(
-      "https://ecostore-api.onrender.com/api/v1/cart_items/",
+      "####",
       {
         headers: {
           Authorization: `Bearer ${token}`,
