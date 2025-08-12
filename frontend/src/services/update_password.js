@@ -3,7 +3,7 @@ import axios from "axios";
 const updatePassword = async (userId, newPassword) => {
     try {
         const response = await axios.put(
-            `https://ecostore-api.onrender.com/api/v1/users/${userId}/`,
+            `####`,
             { password: newPassword },
             {
                 headers: {
