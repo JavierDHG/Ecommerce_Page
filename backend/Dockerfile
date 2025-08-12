@@ -22,7 +22,7 @@ RUN chmod +x /entrypoint.sh
 COPY . .
 
 # Exponer puerto de la app
-EXPOSE 8000
+EXPOSE ####
 
 ENTRYPOINT ["/entrypoint.sh"]
 
