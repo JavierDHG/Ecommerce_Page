@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
   // Función para actualizar el carrito
   const updateCart = async () => {
     try {
-      const response = await axios.get("https://ecostore-api.onrender.com/api/v1/carts", {
+      const response = await axios.get("#####", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -42,7 +42,7 @@ export const UserProvider = ({ children }) => {
   const refreshToken = async () => {
     try {
       // Realiza una solicitud al backend para renovar el token
-      const response = await fetch("https://ecostore-api.onrender.com/token/refresh/", {
+      const response = await fetch("####", {
         method: "POST", // Especifica que el método HTTP es POST
         headers: { "Content-Type": "application/json" }, // Indica que el cuerpo de la solicitud está en formato JSON
         body: JSON.stringify({ refreshToken: localStorage.getItem("refreshToken") }), // Envía el token de refresco almacenado en localStorage
