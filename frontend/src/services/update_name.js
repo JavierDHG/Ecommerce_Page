@@ -3,7 +3,7 @@ import axios from "axios";
 const updateName = async (userId, newname) => {
     try {
         const response = await axios.put(
-            `https://ecostore-api.onrender.com/api/v1/users/${userId}/`,
+            `#####`,
             { username: newname },
             {
                 headers: {
